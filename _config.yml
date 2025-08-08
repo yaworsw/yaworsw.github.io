@@ -1,0 +1,6 @@
+title: 
+author: Will Yaworsky
+description: 
+theme: minima
+plugins:
+  - jekyll-feed
