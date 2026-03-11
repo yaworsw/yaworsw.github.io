@@ -4,8 +4,10 @@
 # Default target
 .DEFAULT_GOAL := help
 
-# Variables
-JEKYLL := bundle exec jekyll
+# Use rvm Ruby if available
+RVM_RUBY := $(HOME)/.rvm/rubies/ruby-2.7.5/bin
+BUNDLE := $(if $(wildcard $(RVM_RUBY)/ruby),$(RVM_RUBY)/ruby -S bundle,bundle)
+JEKYLL := $(BUNDLE) exec jekyll
 SERVE_PORT := 4000
 SERVE_HOST := localhost
 
@@ -25,7 +27,7 @@ help: ## Show this help message
 # Install dependencies
 install: ## Install Ruby gems and dependencies
 	@echo "$(GREEN)Installing dependencies...$(NC)"
-	bundle install
+	$(BUNDLE) install
 
 # Build the site
 build: ## Build the Jekyll site
@@ -56,7 +58,7 @@ clean: ## Clean build artifacts and temporary files
 # Clean everything (including gems)
 clean-all: clean ## Clean everything including gems
 	@echo "$(GREEN)Cleaning gems...$(NC)"
-	bundle clean --force
+	$(BUNDLE) clean --force
 
 # Build and serve
 dev: build serve ## Build and serve the site (alias for build + serve)
@@ -95,7 +97,7 @@ new-post: ## Create a new blog post (usage: make new-post TITLE="My Post Title")
 		exit 1; \
 	fi
 	@echo "$(GREEN)Creating new post: $(TITLE)$(NC)"
-	@bundle exec jekyll post "$(TITLE)"
+	@$(BUNDLE) exec jekyll post "$(TITLE)"
 
 # Show recent posts
 posts: ## Show recent blog posts
@@ -105,7 +107,7 @@ posts: ## Show recent blog posts
 # Update dependencies
 update: ## Update Ruby gems
 	@echo "$(GREEN)Updating dependencies...$(NC)"
-	bundle update
+	$(BUNDLE) update
 
 # Show server status
 status: ## Show server status
