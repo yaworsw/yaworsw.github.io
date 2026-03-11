@@ -1,5 +1,5 @@
 .env
-_site/
-.jekyll-cache/
-.sass-cache/
-.ticket-cache.json
+.ticket-house
+_site
+.jekyll-cache
+.sass-cache

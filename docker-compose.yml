@@ -1,0 +1,16 @@
+version: "3"
+services:
+  jekyll:
+    image: ghcr.io/actions/jekyll-build-pages:latest
+    entrypoint: []
+    command: >
+      sh -c "
+        gem install webrick bundler &&
+        bundle install &&
+        bundle exec jekyll serve --host 0.0.0.0 --port 4000 --force_polling
+      "
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv/jekyll
+    working_dir: /srv/jekyll
