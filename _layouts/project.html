@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<article class="project-detail">
+  <header class="project-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.status %}<span class="project-badge {{ page.status }}">{{ page.status }}</span>{% endif %}
+    {% if page.url_link %}<a href="{{ page.url_link }}" class="project-link">View Project &rarr;</a>{% endif %}
+  </header>
+  {% if page.tech %}
+  <div class="project-tech">
+    {% for t in page.tech %}<span class="tech-tag">{{ t }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>
