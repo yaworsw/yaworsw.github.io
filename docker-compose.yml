@@ -7,8 +7,10 @@ services:
       sh -c "
         gem install webrick bundler &&
         bundle install &&
-        bundle exec jekyll serve --host 0.0.0.0 --port 4000 --force_polling
+        bundle exec jekyll serve --host 0.0.0.0 --port 4000 --force_polling $JEKYLL_OPTS
       "
+    environment:
+      JEKYLL_OPTS: ${JEKYLL_OPTS-}
     ports:
       - "4000:4000"
     volumes:

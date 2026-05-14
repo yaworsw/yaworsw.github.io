@@ -8,8 +8,7 @@ permalink: /blog/:title/
 
 collections:
   projects:
-    output: true
-    permalink: /projects/:title/
+    output: false
 
 plugins:
   - jekyll-feed

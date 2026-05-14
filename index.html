@@ -1,9 +1,26 @@
 ---
+layout: default
 permalink: /
-redirect_to: /about/
 ---
-<!DOCTYPE html>
-<html>
-<head><meta http-equiv="refresh" content="0; url=/about/"></head>
-<body><a href="/about/">Redirecting...</a></body>
-</html>
+
+{% for project in site.projects %}
+<article class="project-detail">
+  <header class="project-header">
+    <h1>{{ project.title }}</h1>
+    {% if project.status and project.status != "active" %}<span class="project-badge {{ project.status }}">{{ project.status }}</span>{% endif %}
+    {% if project.url_link %}<a href="{{ project.url_link }}" class="project-link" target="_blank" rel="noopener">View Project &rarr;</a>{% endif %}
+  </header>
+  {% if project.tech %}
+  <div class="project-tech">
+    {% for t in project.tech %}<span class="tech-tag">{{ t }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  <div class="post-content">
+    {{ project.content }}
+  </div>
+</article>
+{% endfor %}
+
+{% if site.projects.size == 0 %}
+<p style="color: var(--text-muted);">Nothing here yet.</p>
+{% endif %}
