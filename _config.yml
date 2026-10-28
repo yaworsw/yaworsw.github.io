@@ -28,4 +28,3 @@ exclude:
   - README.md
   - .ticket-house
   - .ticket-house.json
-  - code
