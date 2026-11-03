@@ -1,7 +1,7 @@
 # yaworsw.github.io
 
 Personal site of Will Yaworsky, built with Jekyll and served via Docker.
-Published at <https://yaworsw.github.io>.
+Published at <https://will.yaworsky.works> (the custom domain in `CNAME`; yaworsw.github.io redirects there).
 
 ## Running locally
 
