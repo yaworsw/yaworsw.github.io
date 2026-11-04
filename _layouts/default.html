@@ -2,6 +2,10 @@
 <html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8">
+    <!-- Temporary: send every page to the portfolio while the main site is reworked -->
+    <meta http-equiv="refresh" content="0; url=https://will.yaworsky.works/portfolio/">
+    <link rel="canonical" href="https://will.yaworsky.works/portfolio/">
+    <script>window.location.replace("https://will.yaworsky.works/portfolio/");</script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
